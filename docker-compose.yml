@@ -1,0 +1,20 @@
+version: '2.3'
+services:
+  npm:
+    image: spg:devimages2
+    # Use init so we can specify the user ID, so we don't run everything as root.
+    # See docker/env/user.env for more information.
+    init: True
+    # Only for staging servers: always start on server boot.
+    #restart: always
+    volumes:
+      - "./backend:/app:cached"
+      - "./build:/build:cached"
+      - "/app/node_modules"
+    ports:
+      - '127.0.0.1:4001:4000'
+    environment:
+      - LOCAL_USER_ID=1001
+      - PUBLIC_URL=https://spg.inovae.ch
+      - SECRET_SALT=gTzhught6tzgTgzfEEHZUHGT6
+

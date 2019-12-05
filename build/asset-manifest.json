@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/static/js/main.b74958ec.chunk.js",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "static/js/2.a05baee3.chunk.js": "/static/js/2.a05baee3.chunk.js",
+    "index.html": "/index.html",
+    "precache-manifest.0bc80b0f7712a9b6ad341035b200d629.js": "/precache-manifest.0bc80b0f7712a9b6ad341035b200d629.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/UberMove-Bold.otf": "/static/media/UberMove-Bold.093d131d.otf",
+    "static/media/UberMove-Bold.ttf": "/static/media/UberMove-Bold.1f07262c.ttf",
+    "static/media/UberMove-Light.otf": "/static/media/UberMove-Light.74ddbe62.otf",
+    "static/media/UberMove-Light.ttf": "/static/media/UberMove-Light.f5e91574.ttf",
+    "static/media/UberMove-Regular.otf": "/static/media/UberMove-Regular.b4af67d3.otf",
+    "static/media/UberMove-Regular.ttf": "/static/media/UberMove-Regular.c6ba957f.ttf"
+  }
+}
