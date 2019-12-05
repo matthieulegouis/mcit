@@ -4,7 +4,6 @@ import ConfigContext from "../contexts/configContext";
 import BuilderContext from "../contexts/builderContext";
 import Header from "./Poster/Header";
 import Content from "./Poster/Content";
-import SocialPost from "./Poster/SocialPost";
 
 const Wrapper = styled.div`
   ${({ preview }) =>
@@ -65,7 +64,6 @@ export default ({ preview, mobile }) => {
       }
     }, [scale, layout, mobile]);
 
-  if (layout.id === "poster-tabloid" || layout.id === "poster-letter")
     return (
       <Wrapper
         ref={wrapperRef}
@@ -81,19 +79,5 @@ export default ({ preview, mobile }) => {
         </Poster>
       </Wrapper>
     );
-  if (layout.id === "social-post") {
-    return (
-      <Wrapper
-        ref={wrapperRef}
-        preview={preview}
-        width={layout.width}
-        scale={scale}
-        mobile={mobile}
-      >
-        <Poster preview={preview} {...layout} scale={scale}>
-          <SocialPost {...builderConfig} />
-        </Poster>
-      </Wrapper>
-    );
-  } else return null;
+    
 };

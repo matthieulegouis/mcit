@@ -34,9 +34,9 @@ export default ({ currentTab = 0, setTab = () => {} }) => {
       isMobile={isMobile}
       showLabels
     >
-      <Tab label="Layout" icon={<LayoutIcon />} />
-      <Tab label="Customise" icon={<CustomiseIcon />} />
-      <Tab label="Share" icon={<ShareIcon />} />
+      <Tab label="Your image" />
+      <Tab label="Select your design" />
+      <Tab label="Share" />
     </Nav>
   );
 };

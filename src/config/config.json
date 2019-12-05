@@ -6,25 +6,47 @@
   ],
   "layouts": [
     {
-      "id": "poster-tabloid",
-      "name": "Tabloid",
+      "id": "colorfull-circle",
+      "name": "Colorfull circle",
       "image": "",
       "ratio": 1.545454545,
       "width": 1056
     },
     {
-      "id": "poster-letter",
-      "name": "Letter",
+      "id": "logo-white-background",
+      "name": "Logo on a white background",
       "image": "",
       "ratio": 1.294117647,
       "width": 1019
     },
     {
-      "id": "social-post",
-      "name": "Social post",
+      "id": "logo-colored-background",
+      "name": "Logo on a colored background",
       "image": "",
-      "ratio": 1,
-      "width": 600
+      "ratio": 1.294117647,
+      "width": 1019
+    }
+  ],
+  "colors": [
+    {
+      "id": "color1",
+      "name": "Color 1"
+    },
+    {
+      "id": "color2",
+      "name": "Color 2"
+    },
+    {
+      "id": "color3",
+      "name": "Color 3"
+    },
+    {
+      "id": "color4",
+      "name": "Color 4"
+    },
+    {
+      "id": "color5",
+      "name": "Color 5"
     }
   ],
   "customise": {

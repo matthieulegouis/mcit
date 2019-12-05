@@ -3,7 +3,6 @@ import styled from "styled-components";
 import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import ImageIcon from "@material-ui/icons/PhotoOutlined";
-import PDFIcon from "@material-ui/icons/SaveOutlined";
 import { saveAs } from "file-saver";
 import { uploadPDFContent } from "../../../helpers/upload";
 import getCanvas from "../../../helpers/getCanvas";
@@ -62,14 +61,6 @@ export default () => {
           ? "Error"
           : "Running..."}
         <ImageIcon style={{ marginLeft: "0.5rem" }} />
-      </Button>
-      <Button variant="contained" color="primary" onClick={savePdf}>
-        {statusPDF === "ready"
-          ? "Download in pdf"
-          : statusPDF === "error"
-          ? "Error"
-          : "Running..."}
-        <PDFIcon style={{ marginLeft: "0.5rem" }} />
       </Button>
     </Grid>
   );

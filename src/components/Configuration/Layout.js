@@ -17,6 +17,7 @@ const Title = styled(Typography).attrs(props => ({ variant: "h4" }))``;
 
 export default ({ ...props }) => {
   const { layouts } = useContext(ConfigContext);
+  const { colors } = useContext(ConfigContext);
   const { builderConfig, setBuilderConfig } = useContext(BuilderContext);
 
   return (
@@ -28,11 +29,27 @@ export default ({ ...props }) => {
         >
           <Grid container>
             <Grid item xs={12}>
-              <Title>Choose layout</Title>
+              <Title>Select a layout</Title>
             </Grid>
             {layouts &&
               layouts.map(choice => (
                 <Grid item key={choice.id} xs={4}>
+                  <Choice value={choice.id} {...choice} />
+                </Grid>
+              ))}
+          </Grid>
+        </RadioGroup>
+        <RadioGroup
+          value={builderConfig.color || colors[0].id}
+          onChange={event => setBuilderConfig("color", event.target.value)}
+        >
+          <Grid container>
+            <Grid item xs={12}>
+              <Title>Select a color</Title>
+            </Grid>
+            {colors &&
+              colors.map(choice => (
+                <Grid item key={choice.id} xs={2}>
                   <Choice value={choice.id} {...choice} />
                 </Grid>
               ))}

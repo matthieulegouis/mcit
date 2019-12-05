@@ -32,10 +32,10 @@ export default ({ ...props }) => {
       <Nav currentTab={currentTab} setTab={setTab} />
       <SwipeableViews index={currentTab} onChangeIndex={setTab} animateHeight>
         <Step>
-          <LayoutStep />
+          <CustomiseStep />
         </Step>
         <Step>
-          <CustomiseStep />
+          <LayoutStep />
         </Step>
         <Step>
           <ShareStep />
