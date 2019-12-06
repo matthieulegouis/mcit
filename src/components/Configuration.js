@@ -22,6 +22,11 @@ const Step = styled.div`
   padding: 2rem 1rem;
 `;
 
+const SwipeableViewsUI = styled(SwipeableViews)`
+  border-radius: 0 !important;
+  box-shadow: none !important;
+`;
+
 export default ({ ...props }) => {
   const [currentTab, setTab] = React.useState(0);
   const theme = useTheme();
@@ -30,7 +35,7 @@ export default ({ ...props }) => {
   return (
     <Configuration isMobile={isMobile}>
       <Nav currentTab={currentTab} setTab={setTab} />
-      <SwipeableViews index={currentTab} onChangeIndex={setTab} animateHeight>
+      <SwipeableViewsUI index={currentTab} onChangeIndex={setTab} animateHeight>
         <Step>
           <CustomiseStep />
         </Step>
@@ -40,7 +45,7 @@ export default ({ ...props }) => {
         <Step>
           <ShareStep />
         </Step>
-      </SwipeableViews>
+      </SwipeableViewsUI>
       <Arrows currentTab={currentTab} setTab={setTab} />
     </Configuration>
   );

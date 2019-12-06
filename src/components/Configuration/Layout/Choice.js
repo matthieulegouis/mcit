@@ -5,11 +5,12 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const Choice = styled.div`
   margin-bottom: 2rem;
+  text-align: center;
 `;
 
 const Image = styled.img`
   display: block;
-  width: 20px;
+  width: 35px;
   margin: auto;
   ${({ large }) => {
     if (large) {

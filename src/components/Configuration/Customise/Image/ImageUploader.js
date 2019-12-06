@@ -21,31 +21,17 @@ const Uploader = styled.div`
 
 const Label = styled.label`
   cursor: pointer;
-  padding: 6px 2.5rem;
-  font-size: 0.875rem;
-  min-width: 64px;
-  box-sizing: border-box;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  line-height: 1.75;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 500;
+  padding: 8px;
+  min-width: 30px;
   border-radius: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  letter-spacing: 0.02857em;
-  text-transform: uppercase;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-  background-color: #e0e0e0;
-  margin: 0 0.5rem;
+  background: #CF4520;
+  color: #FFF;
 
   ${({ hasFile }) =>
     hasFile &&
     css`
       color: white;
-      background-color: #3f51b5;
+      background-color: #CF4520;
     `}
 `;
 

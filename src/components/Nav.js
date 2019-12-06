@@ -1,14 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import LayoutIcon from "@material-ui/icons/PhotoSizeSelectLargeOutlined";
-import CustomiseIcon from "@material-ui/icons/TuneOutlined";
-import ShareIcon from "@material-ui/icons/ShareOutlined";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 
 const Nav = styled(Tabs)`
+  background: #CF4520;
+  color: #FFF;
   ${({ isMobile }) =>
     isMobile &&
     css`
@@ -19,6 +18,11 @@ const Nav = styled(Tabs)`
       width: 100%;
       z-index: 100;
     `}
+`;
+
+const TabUI = styled(Tab)`
+  background: #CF4520;
+  color: #FFF;
 `;
 
 export default ({ currentTab = 0, setTab = () => {} }) => {
@@ -34,9 +38,9 @@ export default ({ currentTab = 0, setTab = () => {} }) => {
       isMobile={isMobile}
       showLabels
     >
-      <Tab label="Your image" />
-      <Tab label="Select your design" />
-      <Tab label="Share" />
+      <TabUI label="Your image" />
+      <TabUI label="Select your design" />
+      <TabUI label="Share" />
     </Nav>
   );
 };

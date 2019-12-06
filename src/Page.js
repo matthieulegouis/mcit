@@ -16,6 +16,11 @@ const Container = styled(ContainerMui)`
   margin-bottom: 4rem;
 `;
 
+const PaperUI = styled(Paper)`
+  border-radius: 0 !important;
+  box-shadow: none !important;
+`;
+
 const ContainerMobile = styled.div`
   min-height: 100vh;
   display: flex;
@@ -39,9 +44,9 @@ export default () => {
           </Grid>
           <Grid item xs={12} sm={12} lg={5}>
             <Sticky top={50} bottomBoundary="#container">
-              <Paper>
+              <PaperUI>
                 <Poster preview />
-              </Paper>
+              </PaperUI>
             </Sticky>
           </Grid>
         </Grid>

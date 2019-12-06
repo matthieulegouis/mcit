@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Title from "./Title";
 import Uploader from "./Image/ImageUploader";
 
 const Block = styled.div``;
+
+const Label = styled.div`
+  margin: 2rem 0 1rem;
+`;
 
 export default ({ name, title = "Select an image" }) => {
 
   return (
     <Block>
-      <Title>{title}</Title>
+      <Label>{title}</Label>
       <Uploader name={name} notice />
     </Block>
   );
