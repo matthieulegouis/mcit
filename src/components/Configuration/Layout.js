@@ -9,8 +9,6 @@ import ConfigContext from "../../contexts/configContext";
 import BuilderContext from "../../contexts/builderContext";
 import Choice from "./Layout/Choice";
 
-import frFlag from "../../assets/langs/fr.png";
-
 const Block = styled(Container)`
   /* text-align: center; */
 `;
@@ -37,7 +35,7 @@ export default ({ ...props }) => {
             {layouts &&
               layouts.map(choice => (
                 <Grid item key={choice.id} xs={4}>
-                  <Choice image={choice.image} value={choice.id} {...choice} />
+                  <Choice large image={choice.image} value={choice.id} {...choice} />
                 </Grid>
               ))}
           </Grid>

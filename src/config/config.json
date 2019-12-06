@@ -11,7 +11,7 @@
       "image": "",
       "ratio": 1,
       "width": 1056,
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layouts/layout1.png"
     },
     {
       "id": "layout2",
@@ -19,7 +19,7 @@
       "image": "",
       "ratio": 1,
       "width": 1056,
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layouts/layout2.png"
     },
     {
       "id": "layout3",
@@ -27,56 +27,56 @@
       "image": "",
       "ratio": 1,
       "width": 1056,
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layouts/layout3.png"
     }
   ],
   "layout1Colors": [
     {
       "id": "color1",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout1Colors/color1.png"
     },
     {
       "id": "color2",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout1Colors/color2.png"
     },
     {
       "id": "color3",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout1Colors/color3.png"
     },
     {
       "id": "color4",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout1Colors/color4.png"
     },
     {
       "id": "color5",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout1Colors/color5.png"
     }
   ],
   "layout3Colors": [
     {
       "id": "color1",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout3Colors/color1.png"
     },
     {
       "id": "color2",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout3Colors/color2.png"
     },
     {
       "id": "color3",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout3Colors/color3.png"
     },
     {
       "id": "color4",
       "name": "",
-      "image": "/images/Party 1.jpg"
+      "image": "/images/layout3Colors/color4.png"
     }
   ],
   "customise": {

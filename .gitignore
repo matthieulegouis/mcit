@@ -12,6 +12,7 @@
 # /build
 
 # assets
+# public/images
 build/images
 
 # misc
