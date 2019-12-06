@@ -30,7 +30,7 @@ const Arrow = styled.div`
     right &&
     css`
       justify-content: flex-end;
-      background-color: #276ef1;
+      background-color: #CF4520;
       color: white;
     `}
 `;

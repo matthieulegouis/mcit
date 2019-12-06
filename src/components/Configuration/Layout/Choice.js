@@ -7,9 +7,15 @@ const Choice = styled.div`
   margin-bottom: 2rem;
 `;
 
+const Image = styled.img`
+  display: block;
+  width: 20px;
+  margin: auto;
+`;
+
 export default ({ id, name, image }) => (
   <Choice>
-    <img src={image} alt="" />
+    <Image src={image} />
     <FormControlLabel
       value={id}
       control={<Radio color="primary" />}

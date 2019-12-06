@@ -6,47 +6,77 @@
   ],
   "layouts": [
     {
-      "id": "colorfull-circle",
+      "id": "layout1",
       "name": "Colorfull circle",
       "image": "",
-      "ratio": 1.545454545,
-      "width": 1056
+      "ratio": 1,
+      "width": 1056,
+      "image": "/images/Party 1.jpg"
     },
     {
-      "id": "logo-white-background",
+      "id": "layout2",
       "name": "Logo on a white background",
       "image": "",
-      "ratio": 1.294117647,
-      "width": 1019
+      "ratio": 1,
+      "width": 1056,
+      "image": "/images/Party 1.jpg"
     },
     {
-      "id": "logo-colored-background",
+      "id": "layout3",
       "name": "Logo on a colored background",
       "image": "",
-      "ratio": 1.294117647,
-      "width": 1019
+      "ratio": 1,
+      "width": 1056,
+      "image": "/images/Party 1.jpg"
     }
   ],
-  "colors": [
+  "layout1Colors": [
     {
       "id": "color1",
-      "name": "Color 1"
+      "name": "",
+      "image": "/images/Party 1.jpg"
     },
     {
       "id": "color2",
-      "name": "Color 2"
+      "name": "",
+      "image": "/images/Party 1.jpg"
     },
     {
       "id": "color3",
-      "name": "Color 3"
+      "name": "",
+      "image": "/images/Party 1.jpg"
     },
     {
       "id": "color4",
-      "name": "Color 4"
+      "name": "",
+      "image": "/images/Party 1.jpg"
     },
     {
       "id": "color5",
-      "name": "Color 5"
+      "name": "",
+      "image": "/images/Party 1.jpg"
+    }
+  ],
+  "layout3Colors": [
+    {
+      "id": "color1",
+      "name": "",
+      "image": "/images/Party 1.jpg"
+    },
+    {
+      "id": "color2",
+      "name": "",
+      "image": "/images/Party 1.jpg"
+    },
+    {
+      "id": "color3",
+      "name": "",
+      "image": "/images/Party 1.jpg"
+    },
+    {
+      "id": "color4",
+      "name": "",
+      "image": "/images/Party 1.jpg"
     }
   ],
   "customise": {

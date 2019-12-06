@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import ConfigContext from "../contexts/configContext";
 import BuilderContext from "../contexts/builderContext";
 import Header from "./Poster/Header";
-import Content from "./Poster/Content";
 
 const Wrapper = styled.div`
   ${({ preview }) =>
@@ -75,7 +74,6 @@ export default ({ preview, mobile }) => {
       >
         <Poster preview={preview} {...layout} scale={scale}>
           <Header {...builderConfig} preview={preview} />
-          <Content {...builderConfig} />
         </Poster>
       </Wrapper>
     );

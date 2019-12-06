@@ -1,6 +1,7 @@
 {
-  "layout": "colorfull-circle",
-  "color": "color1",
+  "layout": "layout1",
+  "layout1Color": "color1",
+  "layout3Color": "color1",
   "lang": "en",
   "background": "/images/Driving 4.jpg",
   "backgroundLow": "/images/Low/Driving 4.jpg",

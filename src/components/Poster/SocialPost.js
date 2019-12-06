@@ -44,7 +44,7 @@ export default ({ info }) => {
   return (
     <Block>
       <Arrow />
-      <Text color="#276ef1">
+      <Text color="#CF4520">
         Stand up,
         <br />
         don't stand by.
