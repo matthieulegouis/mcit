@@ -13,6 +13,10 @@ const Block = styled(Container)`
   /* text-align: center; */
 `;
 
+const Empty = styled.div`
+  height: 170px;
+`;
+
 const Title = styled(Typography).attrs(props => ({
   variant: "h4",
   style: { margin: "0 0 2rem 0", color: "#CF4520", fontSize: "1.6rem", fontWeight: "700" }
@@ -60,6 +64,9 @@ export default ({ ...props }) => {
                 ))}
             </Grid>
           </RadioGroup>
+        : null}
+        {builderConfig.layout === 'layout2' ?
+          <Empty></Empty>
         : null}
         {builderConfig.layout === 'layout3' ?
           <RadioGroup
