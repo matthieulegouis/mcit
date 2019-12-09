@@ -15,7 +15,6 @@ const Nav = styled(Tabs)`
       position: fixed;
       top: 0;
       left: 0;
-      background-color: white;
       width: 100%;
       z-index: 100;
     `}
@@ -63,6 +62,15 @@ const TabUI = styled(Tab)`
     position: relative;
     top: -2px;
   }
+  ${({ isMobile }) =>
+    isMobile &&
+    css`
+      font-size: 14px !important;
+      line-height: 18px !important;
+      .icon {
+        display: none;
+      }
+    `}
 `;
 
 export default ({ currentTab = 0, setTab = () => {} }) => {
@@ -78,9 +86,9 @@ export default ({ currentTab = 0, setTab = () => {} }) => {
       isMobile={isMobile}
       showLabels
     >
-      <TabUI icon={<div className="icon">1</div>} label={<div className="label">Your name</div>} />
-      <TabUI icon={<div className="icon">2</div>} label={<div className="label">Select your design</div>} />
-      <TabUI icon={<div className="icon">3</div>} label={<div className="label">Share</div>} />
+      <TabUI isMobile={isMobile} icon={<div className="icon">1</div>} label={<div className="label">Your name</div>} />
+      <TabUI isMobile={isMobile} icon={<div className="icon">2</div>} label={<div className="label">Select your design</div>} />
+      <TabUI isMobile={isMobile} icon={<div className="icon">3</div>} label={<div className="label">Share</div>} />
     </Nav>
   );
 };

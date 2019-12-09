@@ -21,10 +21,9 @@ const Panel = styled.div`
 `;
 
 const Container = styled.div`
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #303030;
   width: 100%;
-  height: 120vh;
-  max-height: 120vh;
+  height: 100vh;
   overflow: hidden;
   padding-top: 0.5rem;
   padding-bottom: 4rem;
