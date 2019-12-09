@@ -9,11 +9,12 @@ const Arrows = styled.div`
 
 const Arrow = styled.div`
   flex-grow: 1;
-  padding: 1rem;
+  padding: 0 1rem;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   max-width: 50%;
+  height: 40px;
   outline: none;
 
   &:hover {

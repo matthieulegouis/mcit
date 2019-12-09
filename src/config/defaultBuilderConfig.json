@@ -2,14 +2,5 @@
   "layout": "layout1",
   "layout1Color": "color1",
   "layout3Color": "color1",
-  "lang": "en",
-  "background": "/images/Driving 4.jpg",
-  "backgroundLow": "/images/Low/Driving 4.jpg",
-  "headerMessage": ["Friends look out", "for each other."],
-  "tip": {
-    "name": "Tip #5: Check your ride",
-    "content": "Make a plan with your friends to go home together and when you request a ride, complete these three safety pickup steps to make sure you’re getting into the right car with the right driver:<div style='margin-top:1.5rem;'>Step 1: Match the license plate number</div><div>Step 2: Match the car make and model</div><div>Step 3: Check the driver’s photo</div>"
-  },
-  "info": "If you or someone you know needs help contact the National Sexual Assault Hotline at ",
-  "phone": "1-800-656-HOPE(4675)"
+  "background": "/images/matthieu.jpg"
 }

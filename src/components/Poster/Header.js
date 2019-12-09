@@ -5,7 +5,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const Header = styled.div`
   width: 100%;
   height: 100%;
-  background: #9e9e9e;
+  background: #303030;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -75,7 +75,7 @@ const Avatar = styled.div`
   background-position: 50% 50%;
   width: 100%;
   height: 100%;
-  background-color: #9e9e9e;
+  background-color: #303030;
   ${({ background }) =>
     background !== "LOADING" && css`background-image: url("${background}");`}
   overflow: hidden;

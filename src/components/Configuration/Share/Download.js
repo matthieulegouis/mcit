@@ -9,7 +9,8 @@ import getCanvas from "../../../helpers/getCanvas";
 
 const Button = styled(ButtonMui).attrs({
   style: {
-    marginBottom: "2rem"
+    marginBottom: "2rem",
+    boxShadow: "none"
   }
 })``;
 
