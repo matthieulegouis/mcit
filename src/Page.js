@@ -19,6 +19,8 @@ const Container = styled(ContainerMui)`
 const PaperUI = styled(Paper)`
   border-radius: 0 !important;
   box-shadow: none !important;
+  padding: 50px;
+  background: #303030 !important;
 `;
 
 const ContainerMobile = styled.div`

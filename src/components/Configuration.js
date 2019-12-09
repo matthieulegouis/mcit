@@ -7,7 +7,7 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import LayoutStep from "./Configuration/Layout";
 import CustomiseStep from "./Configuration/Customise";
-import ShareStep from "./Configuration/Share";
+import Download from "./Download";
 import Arrows from "./Configuration/Arrows";
 
 const Configuration = styled(PaperMui)`
@@ -40,7 +40,7 @@ export default ({ ...props }) => {
           <LayoutStep />
         </Step>
         <Step>
-          <ShareStep />
+          <Download />
         </Step>
       </SwipeableViews>
       <Arrows currentTab={currentTab} setTab={setTab} />

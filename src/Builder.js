@@ -16,6 +16,7 @@ const Screensaver = styled.div`
   left: 100vw;
   z-index: -1;
   opacity: 0;
+  margin: 30px;
 `;
 
 export default class extends React.Component {

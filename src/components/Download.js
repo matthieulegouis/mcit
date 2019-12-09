@@ -4,8 +4,8 @@ import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import ImageIcon from "@material-ui/icons/PhotoOutlined";
 import { saveAs } from "file-saver";
-import { uploadPDFContent } from "../../../helpers/upload";
-import getCanvas from "../../../helpers/getCanvas";
+import { uploadPDFContent } from "../helpers/upload";
+import getCanvas from "../helpers/getCanvas";
 
 const Button = styled(ButtonMui).attrs({
   style: {
