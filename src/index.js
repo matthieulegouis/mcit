@@ -3,12 +3,10 @@ import ReactDOM from "react-dom";
 import styled, { css } from "styled-components";
 import Builder from "./Builder";
 import * as serviceWorker from "./serviceWorker";
-import Fonts from "./Fonts";
 
 
 ReactDOM.render(
   <>
-    <Fonts />
     <Builder />
   </>,
   document.getElementById("root")
