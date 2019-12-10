@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 const Poster = styled.div`
   width: ${({ width }) => width}px;
   height: ${({ width, ratio }) => width * ratio}px;
-  background-color: white;
+  background-color: transparent;
   transition: transform 0.3s ease;
   overflow: hidden;
   display: flex;

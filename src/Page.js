@@ -12,15 +12,17 @@ import Poster from "./components/Poster";
 import PreviewMobile from "./components/PreviewMobile";
 
 const Container = styled(ContainerMui)`
-  padding: 4rem 0 0;
+  max-width: 1100px !important;
+  padding: 2rem 0 0;
   margin-bottom: 4rem;
 `;
 
 const PaperUI = styled(Paper)`
   border-radius: 0 !important;
   box-shadow: none !important;
-  padding: 50px;
+  padding: 100px 70px;
   background: #303030 !important;
+  background: linear-gradient(0deg, rgba(48,48,48,1) 40%, rgba(60,60,60,1) 40%) !important;
 `;
 
 const ContainerMobile = styled.div`
@@ -39,12 +41,12 @@ export default () => {
   if (isDesktop) {
     return (
       <Container id="container">
-        <Grid container spacing={10}>
-          <Grid item xs={12} sm={12} lg={7} style={{ paddingBottom: 0 }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} sm={12} lg={8} style={{ paddingBottom: 0 }}>
             <Configuration />
             <div id="tester" />
           </Grid>
-          <Grid item xs={12} sm={12} lg={5}>
+          <Grid item xs={12} sm={12} lg={4}>
             <Sticky top={50} bottomBoundary="#container">
               <PaperUI>
                 <Poster preview />

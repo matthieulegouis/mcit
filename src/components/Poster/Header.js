@@ -5,7 +5,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const Header = styled.div`
   width: 100%;
   height: 100%;
-  background: #303030;
+  background: transparent;
   overflow: hidden;
   position: relative;
   display: flex;
