@@ -19,7 +19,6 @@ const Container = styled(ContainerMui)`
 
 const PaperUI = styled(Paper)`
   border-radius: 0 !important;
-  box-shadow: none !important;
   padding: 100px 70px;
   background: #303030 !important;
   background: linear-gradient(0deg, rgba(48,48,48,1) 40%, rgba(60,60,60,1) 40%) !important;
