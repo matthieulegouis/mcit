@@ -8,6 +8,13 @@ const Choice = styled.div`
   margin-bottom: 2rem;
   text-align: center;
   cursor: pointer;
+  ${({ label }) => {
+    if (label) {
+      return css`
+        padding-bottom: 2.5rem;
+      `;
+    }
+  }}
 `;
 
 const Image = styled.img`
@@ -28,23 +35,32 @@ const Label = styled.div`
   top: 75px;
   left: 0;
   right: 0;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  color: #555;
   cursor: pointer;
   ${({ large }) => {
     if (large) {
       return css`
-        top: 140px;
+        top: 145px;
       `;
     }
   }}
 `;
 
 export default ({ id, name, image, large }) => (
-  <Choice>
+  <Choice label={name}>
     <FormControlLabel
       value={id}
       control={<Radio color="primary" />}
       icon={<div>1</div>}
-      label={<><Image large={large} src={image} /><Label large={large}>{name}</Label></>}
+      label={
+        <>
+          {image ? <Image large={large} src={image} /> : null}
+          {name ? <Label large={large}>{name}</Label> : null}
+        </>
+      }
       labelPlacement="top"
     />
   </Choice>
