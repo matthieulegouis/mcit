@@ -85,12 +85,12 @@ const Avatar = styled.div`
   ${({ layout }) => {
     if (layout === "layout1") {
       return css`
-        border: 20pt solid #FFF;
+        border: 40pt solid #FFF;
       `;
     }
     if (layout === "layout2" || layout === "layout3") {
       return css`
-        border: 10pt solid #FFF !important;
+        border: 20pt solid #FFF !important;
       `;
     } 
   }}
