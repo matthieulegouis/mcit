@@ -20,12 +20,9 @@ const Logo = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150pt;
-  line-height: 150pt;
-  color: #000;
-  background: #FFF;
-  font-size: 100pt;
-  font-weight: 700;
+  height: 120px;
+  line-height: 120px;
+  background: #fff;
   text-align: center;
   ${({ layout }) => {
     if (layout === "layout1") {
@@ -35,38 +32,40 @@ const Logo = styled.div`
     }
     if (layout === "layout2") {
       return css`
-      background: #FFF !important;
-      `;
-    }
-    if (layout === "layout3") {
-      return css`
-        color: #FFF;
+        background: #fff !important;
       `;
     }
   }}
   ${({ layout3Color }) => {
     if (layout3Color === "color1") {
       return css`
-        background: rgba(179, 27, 27, 0.5);
+        background: rgba(179, 27, 27, 0.7);
       `;
-    } 
+    }
     if (layout3Color === "color2") {
       return css`
-        background: rgba(207, 69, 32, 0.5);
+        background: rgba(207, 69, 32, 0.7);
       `;
-    } 
+    }
     if (layout3Color === "color3") {
       return css`
-        background: rgba(232, 119, 34, 0.5);
+        background: rgba(232, 119, 34, 0.7);
       `;
-    } 
+    }
     if (layout3Color === "color4") {
       return css`
-        background: rgba(255, 199, 44, 0.5);
+        background: rgba(255, 199, 44, 0.7);
       `;
-    } 
+    }
   }}
 `;
+
+const IMG = styled.img`
+  display: inline-block;
+  margin: auto;
+  max-height: 100%;
+  overflow: hidden;
+`
 
 const Avatar = styled.div`
   position: relative;
@@ -76,51 +75,58 @@ const Avatar = styled.div`
   width: 100%;
   height: 100%;
   background-color: #303030;
-  ${({ background }) =>
-    background !== "LOADING" && css`background-image: url("${background}");`}
   overflow: hidden;
   transition: all 0.3s ease;
   border-radius: 50%;
-
+  ${({ background }) =>
+    background !== "LOADING" &&
+    css`
+      background-image: url("${background}");
+  `}
   ${({ layout }) => {
     if (layout === "layout1") {
       return css`
-        border: 40pt solid #FFF;
+        border: 18px solid #FFF;
       `;
     }
     if (layout === "layout2" || layout === "layout3") {
       return css`
-        border: 20pt solid #FFF !important;
+        border: 18px solid #FFF !important;
       `;
-    } 
+    }
   }}
 
   ${({ layout1Color }) => {
     if (layout1Color === "color1") {
       return css`
-        border-color: rgba(179, 27, 27, 1) rgba(179, 27, 27, 1) rgba(255, 199, 44, 1) rgba(255, 199, 44, 1);
-     `;
+        border-color: rgba(179, 27, 27, 1) rgba(179, 27, 27, 1)
+          rgba(255, 199, 44, 1) rgba(255, 199, 44, 1);
+      `;
     }
     if (layout1Color === "color2") {
       return css`
-        border-color: rgba(207, 69, 32, 1)  rgba(207, 69, 32, 1) rgba(255, 199, 44, 1) rgba(255, 199, 44, 1);
-     `;
-    } 
+        border-color: rgba(207, 69, 32, 1) rgba(207, 69, 32, 1)
+          rgba(255, 199, 44, 1) rgba(255, 199, 44, 1);
+      `;
+    }
     if (layout1Color === "color3") {
       return css`
-        border-color: rgba(207, 69, 32, 1)  rgba(207, 69, 32, 1) rgba(179, 27, 27, 1) rgba(179, 27, 27, 1);
-     `;
-    } 
+        border-color: rgba(207, 69, 32, 1) rgba(207, 69, 32, 1)
+          rgba(179, 27, 27, 1) rgba(179, 27, 27, 1);
+      `;
+    }
     if (layout1Color === "color4") {
       return css`
-        border-color: rgba(255, 199, 44, 1)  rgba(255, 199, 44, 1) rgba(179, 27, 27, 1) rgba(179, 27, 27, 1);
-     `;
-    } 
+        border-color: rgba(255, 199, 44, 1) rgba(255, 199, 44, 1)
+          rgba(179, 27, 27, 1) rgba(179, 27, 27, 1);
+      `;
+    }
     if (layout1Color === "color5") {
       return css`
-        border-color: rgba(179, 27, 27, 1) rgba(207, 69, 32, 1) rgba(232, 119, 34, 1) rgba(255, 199, 44, 1);
+        border-color: rgba(179, 27, 27, 1) rgba(207, 69, 32, 1)
+          rgba(232, 119, 34, 1) rgba(255, 199, 44, 1);
       `;
-    } 
+    }
   }}
 `;
 
@@ -140,11 +146,22 @@ export default ({
 }) => {
   const backgroundImg = preview ? backgroundLow || background : background;
   const isLoading = backgroundImg === "LOADING";
-
   return (
     <Header>
-      <Avatar background={backgroundImg} layout={layout} layout1Color={layout1Color} layout3Color={layout3Color}>
-        <Logo layout={layout} layout1Color={layout1Color} layout3Color={layout3Color}>WCM</Logo>
+      <Avatar
+        background={backgroundImg}
+        layout={layout}
+        layout1Color={layout1Color}
+        layout3Color={layout3Color}
+      >
+        <Logo
+          layout={layout}
+          layout1Color={layout1Color}
+          layout3Color={layout3Color}
+        >
+          {layout === "layout2" ? <IMG src="/images/logo-wcm.svg" /> : null}
+          {layout === "layout3" ? <IMG src="/images/logo-wcm-white.svg" /> : null}
+        </Logo>
       </Avatar>
       {isLoading && <Spinner size={150} />}
     </Header>

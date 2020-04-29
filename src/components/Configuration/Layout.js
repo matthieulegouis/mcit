@@ -19,7 +19,7 @@ const Empty = styled.div`
 
 const Title = styled(Typography).attrs(props => ({
   variant: "h4",
-  style: { margin: "0 0 2rem 0", color: "#CF4520", fontSize: "1.6rem", fontWeight: "700" }
+  style: { margin: "0 0 2rem 0", color: "#CF4520", fontSize: "1.6rem", fontWeight: "700", fontFamily: "" }
 }))``;
 
 export default ({ ...props }) => {

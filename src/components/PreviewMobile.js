@@ -25,7 +25,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  padding-top: 0.5rem;
+  padding-top: 90px;
   padding-bottom: 4rem;
 `;
 

@@ -35,6 +35,22 @@ const Label = styled.label`
     `}
 `;
 
+const FileName = styled.div`
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  max-width: 300px;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  color: #424242;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @media (max-width: 768px) {
+    max-width: 170px;
+  }
+`;
+
 const Notice = styled.div`
   font-size: 0.8rem;
   color: #424242;
@@ -50,14 +66,15 @@ export default ({
   const { setBuilderConfig } = useContext(BuilderContext);
   const [btnText, setBtnText] = useState(label);
   const [hasFile, setHasFile] = useState(false);
+  const [fileName, setfileName] = useState("");
 
   const getImage = event => {
     setBtnText("Uploading...");
     setBuilderConfig(name + "Low", "LOADING");
     setBuilderConfig(name, "LOADING");
-
     const files = event.target.files;
     if (files && files[0]) {
+      const fileName = files[0].name;
       if (files[0].size > MAX_FILE_SIZE) {
         setBtnText("File is too big");
         setTimeout(() => setBtnText(label), 5000);
@@ -84,7 +101,8 @@ export default ({
           else setBuilderConfig(name, base64Img);
           // Update button state when image is saved
           setHasFile(true);
-          setBtnText(label);
+          setBtnText("Change file");
+          setfileName(fileName);
         };
 
         // Resize image for preview
@@ -96,6 +114,10 @@ export default ({
         });
       };
       reader.readAsDataURL(files[0]);
+    } else {
+      setHasFile(false);
+      setBtnText(label);
+      setfileName("");
     }
   };
 
@@ -111,6 +133,7 @@ export default ({
         autoComplete="off"
         onChange={getImage}
       />
+      <FileName>{fileName}</FileName>
       {notice && <Notice>10 MB limit. Allowed types: png, jpeg, gif</Notice>}
     </Uploader>
   );

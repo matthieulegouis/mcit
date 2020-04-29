@@ -1,43 +1,42 @@
 # Social poster generator
 
-## Lancement
+## Initiation
 
 ```shell
-cd backend/
 npm install
 export PUBLIC_URL=https://public-url.com
 export SECRET_SALT=<random string>
 npm start
 ```
 
-Les images sélectionnables sont à placer dans ` /build/images`.
+Selectable images are to be placed in ` /build/images`.
 
-## Fonctionnement
+## How it works
 
-Le frontend est constitué de deux parties:
+The frontend consists of two parts:
 
-- Un bloc de configuration (`<Configuration/>`)
-- Un bloc d’affichage du résultat (`<Poster/>`)
+- A configuration block (`<Configuration/>`)
+- A result display block (`<Poster/>`)
 
-Le second est utilisé pour afficher la prévisualisation ainsi que pour générer une image du résultat, nécessaire pour le partage sur les réseaux sociaux et la génération de PDF.
+The display block is used to generate the preview as well as the image necessary for sharing on social networks.
 
 ## Configuration
 
-La configuration est séparée en deux fichiers présents dans `src/config`.
+The configuration is separated into two files found in `src/config`.
 
-- `config.json` réunit tous les choix possibles dans la configuration des posters / social posts.
-- `defaultBuilderConfig.json` permet de fixer des choix par défaut au chargement de la page. Ce qui est fixé dans ce fichier doit correspondre à des champs dans `config.json`.  Les noms des champs sont définis dans `src/components/Configuration/Customise.js` et dépendent du layout sélectionné.
+- `config.json` brings together all the possible choices in the configuration of posters / social posts.
+- `defaultBuilderConfig.json` allows you to set default choices when the page loads. What is fixed in this file must correspond to fields in `config.json`. The names of the fields are defined in `src/components/Configuration/Customise.js` and depend on the layout selected.
 
-> La configuration est un peu brute. Un mauvais formatage des données JSON peut générer un bug dans le frontend.
+> Improper formatting of JSON data can result a bug in the frontend.
 
-### Ajout d’une nouvelle configuration
+### Adding a new configuration
 
-Pour ajouter une nouvelle configuration possible sur un layout:
+To add a new configuration on a layout:
 
-- Si nécessaire, ajouter les données constantes dans `src/config/config.json`.
-- Dans `src/components/Configuration/Customise.js`, ajouter le nouveau composant de configuration en lui donnant un nom (`name`).
-- Dans `src/config/defaultBuilderConfig.json`, ajouter un choix par défaut en ajoutant un champ ayant pour clé le `name` fixé et la valeur par défaut.
-- Configurer le bloc d’affichage pour afficher la nouvelle donnée dans `<Poster/>`
+- If necessary, add the constant data to `src/config/config.json`.
+- In `src/components/Configuration/Customise.js`, add the new configuration component by giving it a (`name`).
+- In `src/config/defaultBuilderConfig.json`, add a default choice by adding a field with the fixed `name` and the default value as key.
+- Configure the block to display the new data in `<Poster/>`
 
 # Create-React-App
 
@@ -109,3 +108,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### Docker
+
+For build: docker-compose -f docker-compose.builder.yml run --rm install
+This will run the npm install command and download the dependencies required for the application
+
+Please modify the included docker-compose.yml.dist for your needs.
+Then docker-compose up

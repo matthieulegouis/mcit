@@ -1,7 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import styled from "styled-components";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 
@@ -9,15 +7,13 @@ const Nav = styled(Tabs)`
   min-height: 40px !important;
   background: #CF4520;
   color: #FFF;
-  ${({ isMobile }) =>
-    isMobile &&
-    css`
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-    `}
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
 `;
 
 const TabUI = styled(Tab)`
@@ -56,26 +52,24 @@ const TabUI = styled(Tab)`
     font-size: 13px;
     line-height: 25px;
     font-weight: 700;
+    font-family: "sans1898";
   }
   .label {
     display: inline-block;
     position: relative;
     top: -2px;
+    font-family: "sans1898";
   }
-  ${({ isMobile }) =>
-    isMobile &&
-    css`
-      font-size: 14px !important;
-      line-height: 18px !important;
-      .icon {
-        display: none;
-      }
-    `}
+  @media (max-width: 768px) {
+    font-size: 14px !important;
+    line-height: 18px !important;
+    .icon {
+      display: none;
+    }
+  }
 `;
 
 export default ({ currentTab = 0, setTab = () => {} }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Nav
@@ -83,12 +77,10 @@ export default ({ currentTab = 0, setTab = () => {} }) => {
       onChange={(event, tab) => setTab(tab)}
       variant="fullWidth"
       indicatorColor="primary"
-      isMobile={isMobile}
-      showLabels
     >
-      <TabUI isMobile={isMobile} icon={<div className="icon">1</div>} label={<div className="label">Your name</div>} />
-      <TabUI isMobile={isMobile} icon={<div className="icon">2</div>} label={<div className="label">Select your design</div>} />
-      <TabUI isMobile={isMobile} icon={<div className="icon">3</div>} label={<div className="label">Share</div>} />
+      <TabUI icon={<div className="icon">1</div>} label={<div className="label">Your image</div>} />
+      <TabUI icon={<div className="icon">2</div>} label={<div className="label">Select your design</div>} />
+      <TabUI icon={<div className="icon">3</div>} label={<div className="label">Share</div>} />
     </Nav>
   );
 };

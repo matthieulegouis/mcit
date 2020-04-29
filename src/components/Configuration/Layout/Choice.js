@@ -5,13 +5,15 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const Choice = styled.div`
   position: relative;
+  margin: 0;
   margin-bottom: 2rem;
   text-align: center;
   cursor: pointer;
   ${({ label }) => {
     if (label) {
       return css`
-        padding-bottom: 2.5rem;
+        margin: 0;
+        padding-bottom: 4.5rem;
       `;
     }
   }}
@@ -21,10 +23,16 @@ const Image = styled.img`
   display: block;
   width: 35px;
   margin: auto;
+  @media (max-width: 768px) {
+    width: 28px;
+  }
   ${({ large }) => {
     if (large) {
       return css`
         width: 100px;
+        @media (max-width: 768px) {
+          width: 70px;
+        }
       `;
     }
   }}
@@ -40,10 +48,18 @@ const Label = styled.div`
   line-height: 21px;
   color: #555;
   cursor: pointer;
+  font-family: "sans1898";
+  @media (max-width: 768px) {
+    font-size: 10px;
+    line-height: 12px;
+  }
   ${({ large }) => {
     if (large) {
       return css`
         top: 145px;
+        @media (max-width: 768px) {
+          top: 110px;
+        }
       `;
     }
   }}

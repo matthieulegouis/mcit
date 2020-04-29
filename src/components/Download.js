@@ -2,21 +2,31 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import ImageIcon from "@material-ui/icons/PhotoOutlined";
 import { saveAs } from "file-saver";
-import { uploadPDFContent } from "../helpers/upload";
 import getCanvas from "../helpers/getCanvas";
 
 const Button = styled(ButtonMui).attrs({
   style: {
+    position: "relative",
     marginBottom: "2rem",
-    boxShadow: "none"
+    boxShadow: "none",
+    fontFamily: "sans1898",
+    minWidth: "300px",
+    textTransform: "none",
+    fontWeight: "bold",
+    fontSize: "1rem"
   }
 })``;
 
-export default () => {
+const Img = styled.img`
+  position: absolute;
+  top: 9px;
+  left: 15px;
+  height: 20px;
+`;
+
+export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
-  const [statusPDF, setStatusPDF] = useState("ready");
 
   // Save previewed poster in PNG
   const savePng = async () => {
@@ -28,7 +38,7 @@ export default () => {
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
       try {
-        saveAs(blob, "poster.png");
+        saveAs(blob, "avatar.png");
         setStatusImage("ready");
       } catch (e) {
         console.error(e);
@@ -37,32 +47,26 @@ export default () => {
     });
   };
 
-  // Save previewed poster in PDF
-  const savePdf = async () => {
-    if (statusPDF === "running") {
-      console.log("Save to PDF already running");
-      return;
-    }
-    setStatusPDF("running");
-    const canvas = await getCanvas();
-    const imgData = canvas.toDataURL("image/jpeg");
-    const url = await uploadPDFContent(imgData);
-    if (url) {
-      window.open(url, "_blank");
-      setStatusPDF("ready");
-    } else setStatusPDF("error");
-  };
-
   return (
     <Grid container direction="column" justify="center" alignItems="center">
-      <Button variant="contained" color="primary" onClick={savePng}>
-        {statusImage === "ready"
-          ? "Download in jpg"
-          : statusImage === "error"
-          ? "Error"
-          : "Running..."}
-        <ImageIcon style={{ marginLeft: "0.5rem" }} />
-      </Button>
+      {props.facebook ?
+        <Button variant="contained" color="primary" onClick={savePng}>
+          <Img src="/images/social/facebook.svg" />
+          {statusImage === "ready" ? "Download for Facebook" : statusImage === "error" ? "Error" : "Running..."}
+        </Button>
+      : null}
+      {props.twitter ?
+        <Button variant="contained" color="primary" onClick={savePng}>
+          <Img src="/images/social/twitter.svg" />
+          {statusImage === "ready" ? "Download for Twitter" : statusImage === "error" ? "Error" : "Running..."}
+        </Button>
+      : null}
+      {props.instagram ?
+        <Button variant="contained" color="primary" onClick={savePng}>
+          <Img src="/images/social/instagram.svg" />
+          {statusImage === "ready" ? "Download for Instagram" : statusImage === "error" ? "Error" : "Running..."}
+        </Button>
+      : null}
     </Grid>
   );
 };

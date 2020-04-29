@@ -1,23 +1,25 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import ConfigContext from "../contexts/configContext";
 import BuilderContext from "../contexts/builderContext";
 import Header from "./Poster/Header";
 
 const Wrapper = styled.div`
-  ${({ preview }) =>
+  ${({ preview, ratio }) =>
     preview &&
     css`
-      max-width: calc(100vw - 1rem);
+      width: ${({ width }) => width}px;
+      height: ${({ width, ratio }) => width * ratio}px;
       margin: 0 auto;
-      height: ${({ height }) => height || 0}px;
+      transform: scale(0.4);
     `}
 
-  ${({ mobile, width, scale }) =>
+  ${({ mobile }) =>
     mobile &&
     css`
       position: relative;
-      left: calc(50% - ${(width * scale) / 2 + 8}px);
+      max-width: 100%;
+      transform: scale(0.5);
     `}
 `;
 
@@ -29,11 +31,11 @@ const Poster = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  margin: auto;
 
-  ${({ preview, scale }) =>
+  ${({ preview }) =>
     preview &&
     css`
-      transform: scale(${scale});
       transform-origin: top left;
     `}
 `;
@@ -45,7 +47,6 @@ export default ({ preview, mobile }) => {
 
   let layout = layouts.find(l => l.id === builderConfig.layout);
   if (!layout) layout = builderConfig.layout[0];
-  const [scale, setScale] = useState(0.1);
 
   if (preview)
     useEffect(() => {
@@ -53,25 +54,21 @@ export default ({ preview, mobile }) => {
         const parentHeight = window.innerHeight;
         const parentWidth = window.innerWidth;
         const windowRatio = parentHeight / parentWidth;
-        if (windowRatio < layout.ratio)
-          setScale(parentHeight / (layout.width * layout.ratio));
-        else setScale(parentWidth / layout.width);
       } else {
         const parentWidth = wrapperRef.current.clientWidth;
-        setScale(parentWidth / layout.width);
       }
-    }, [scale, layout, mobile]);
+    }, [layout, mobile]);
 
     return (
       <Wrapper
         ref={wrapperRef}
         preview={preview}
         width={layout.width}
-        height={layout.width * layout.ratio * scale}
-        scale={scale}
+        height={layout.width * layout.ratio}
         mobile={mobile}
+        {...layout}
       >
-        <Poster preview={preview} {...layout} scale={scale}>
+        <Poster preview={preview} {...layout}>
           <Header {...builderConfig} preview={preview} />
         </Poster>
       </Wrapper>

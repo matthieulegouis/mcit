@@ -1,10 +1,8 @@
 import React from "react";
 import PaperMui from "@material-ui/core/Paper";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Nav from "./Nav";
 import SwipeableViews from "react-swipeable-views";
-import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import LayoutStep from "./Configuration/Layout";
 import CustomiseStep from "./Configuration/Customise";
 import Download from "./Download";
@@ -13,24 +11,28 @@ import Arrows from "./Configuration/Arrows";
 const Configuration = styled(PaperMui)`
   box-shadow: none !important;
   border-radius: 0 !important;
-  ${({ isMobile }) =>
-    isMobile &&
-    css`
-      margin-top: 4.5rem;
-    `}
+  @media (max-width: 768px) {
+    margin-top: 4.5rem;
+  }
 `;
 
 const Step = styled.div`
   padding: 2rem 1rem;
 `;
 
+const Introduction = styled.div`
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #555;
+`;
+
 export default ({ ...props }) => {
   const [currentTab, setTab] = React.useState(0);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Configuration isMobile={isMobile}>
+    <Configuration>
       <Nav currentTab={currentTab} setTab={setTab} />
       <SwipeableViews index={currentTab} onChangeIndex={setTab} animateHeight>
         <Step>
@@ -40,7 +42,10 @@ export default ({ ...props }) => {
           <LayoutStep />
         </Step>
         <Step>
-          <Download />
+          <Introduction>Download your avatar</Introduction>
+          <Download facebook />
+          <Download twitter />
+          <Download instagram />
         </Step>
       </SwipeableViews>
       <Arrows currentTab={currentTab} setTab={setTab} />

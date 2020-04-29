@@ -16,6 +16,7 @@ const Arrow = styled.div`
   max-width: 50%;
   height: 40px;
   outline: none;
+  font-family: "sans1898";
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.3);

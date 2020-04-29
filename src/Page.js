@@ -5,7 +5,6 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ContainerMui from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Sticky from "react-stickynode";
 import MobileNav from "./components/MobileNav";
 import Configuration from "./components/Configuration";
 import Poster from "./components/Poster";
@@ -18,8 +17,12 @@ const Container = styled(ContainerMui)`
 `;
 
 const PaperUI = styled(Paper)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
   border-radius: 0 !important;
-  padding: 100px 70px;
+  padding: 0;
   background: #303030 !important;
   background: linear-gradient(0deg, rgba(48,48,48,1) 40%, rgba(60,60,60,1) 40%) !important;
 `;
@@ -46,11 +49,9 @@ export default () => {
             <div id="tester" />
           </Grid>
           <Grid item xs={12} sm={12} lg={4}>
-            <Sticky top={50} bottomBoundary="#container">
-              <PaperUI>
-                <Poster preview />
-              </PaperUI>
-            </Sticky>
+            <PaperUI>
+              <Poster preview />
+            </PaperUI>
           </Grid>
         </Grid>
       </Container>

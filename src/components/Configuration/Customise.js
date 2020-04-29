@@ -5,6 +5,7 @@ import Image from "./Customise/Image";
 
 const Block = styled(Container)`
   margin-top: -2rem;
+  font-family: "sans1898";
 `;
 
 export default () => {
