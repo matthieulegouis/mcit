@@ -38,14 +38,16 @@ export default (props) => {
     setStatusImage("running");
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
-      const file = new Blob([], {type: 'image/png'});
-      try {
-        saveAs(blob, "avatar.png");
-        //setStatusImage("ready");
-      } catch (e) {
-        console.error(e);
-        setStatusImage("error");
-      }
+      var newImg = document.createElement('img'),
+      url = URL.createObjectURL(blob);
+
+  newImg.onload = function() {
+    // no longer need to read the blob so it's revoked
+    URL.revokeObjectURL(url);
+  };
+
+  newImg.src = url;
+  document.body.appendChild(newImg);
     }, 'image/png');
   };
 
