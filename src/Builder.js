@@ -16,6 +16,13 @@ const Screensaver = styled.div`
   left: 100vw;
   z-index: -1;
   opacity: 0;
+
+  top: 0;
+  left: -100px;
+  opacity: 1 !important;
+  z-index: 100;
+  transform: scale(0.5);
+  border: 1px solid red;
 `;
 
 export default class extends React.Component {
