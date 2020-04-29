@@ -21,12 +21,13 @@ const Panel = styled.div`
 `;
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #303030;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  padding-top: 90px;
-  padding-bottom: 4rem;
 `;
 
 export default ({ open }) => {

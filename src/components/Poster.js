@@ -17,9 +17,7 @@ const Wrapper = styled.div`
   ${({ mobile }) =>
     mobile &&
     css`
-      position: relative;
-      max-width: 100%;
-      transform: scale(0.5);
+      transform: scale(0.4);
     `}
 `;
 
