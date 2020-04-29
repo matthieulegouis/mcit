@@ -12,17 +12,10 @@ import Poster from "./components/Poster";
 
 const Screensaver = styled.div`
   position: fixed;
-  top: 100vh;
-  left: 100vw;
+  top: 0;
+  left: 0;
   z-index: -1;
   opacity: 0;
-
-  top: 0;
-  left: -100px;
-  opacity: 1 !important;
-  z-index: 100;
-  transform: scale(0.5);
-  border: 1px solid red;
 `;
 
 export default class extends React.Component {
