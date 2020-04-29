@@ -29,6 +29,18 @@ const Img = styled.img`
 export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
 
+  var saveData = (function () {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (url, fileName) {
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+}());
+
   // Save previewed poster in PNG
   const savePng = async () => {
     if (statusImage === "running") {
@@ -38,16 +50,8 @@ export default (props) => {
     setStatusImage("running");
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
-      var newImg = document.createElement('img'),
-      url = URL.createObjectURL(blob);
-
-  newImg.onload = function() {
-    // no longer need to read the blob so it's revoked
-    URL.revokeObjectURL(url);
-  };
-
-  newImg.src = url;
-  document.body.appendChild(newImg);
+      var url = window.URL.createObjectURL(blob);
+      saveData(url, "image");
     }, 'image/png');
   };
 
