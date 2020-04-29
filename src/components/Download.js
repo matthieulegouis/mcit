@@ -40,6 +40,13 @@ export default (props) => {
       try {
         saveAs(blob, "avatar.png");
         setStatusImage("ready");
+        console.log("lol", blob)
+        const fileObjectURL = URL.createObjectURL(blob);
+        console.log("azeazez", fileObjectURL) ;
+        let newWindow = window.open('/pages/loading');
+        newWindow.onload = () => {
+          newWindow.location = URL.createObjectURL(blob);
+        };
       } catch (e) {
         console.error(e);
         setStatusImage("error");
