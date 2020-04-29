@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { saveAs } from "file-saver";
+import download from "file-saver";
 import getCanvas from "../helpers/getCanvas";
 
 const Button = styled(ButtonMui).attrs({
@@ -27,7 +28,6 @@ const Img = styled.img`
 
 export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
-  
 
   // Save previewed poster in PNG
   const savePng = async () => {
@@ -38,29 +38,15 @@ export default (props) => {
     setStatusImage("running");
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
-      var sampleBytes = new Int8Array(4096);
-
-var saveByteArray = (function () {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    return function () {
-        var url = window.URL.createObjectURL(blob);
-        a.href = url;
-        a.download = "avatar";
-        a.click();
-        window.URL.revokeObjectURL(url);
-    };
-}());
+      const file = new Blob([], {type: 'image/png'});
       try {
-        saveByteArray([sampleBytes], 'aaa.png');
-        //saveAs(blob, "avatar.png");
+        saveAs(blob, "avatar.png");
         //setStatusImage("ready");
       } catch (e) {
         console.error(e);
         setStatusImage("error");
       }
-    });
+    }, 'image/png');
   };
 
   return (
