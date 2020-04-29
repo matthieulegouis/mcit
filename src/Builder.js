@@ -10,11 +10,17 @@ import defaultBuilderConfig from "./config/defaultBuilderConfig.json";
 import Page from "./Page";
 import Poster from "./components/Poster";
 
+const Wrapper = styled.div`
+  position: relative;
+  min-height: 100vh;
+  background: #F1EFF0;
+`;
+
 const Screensaver = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -9999;
   opacity: 0;
 `;
 
@@ -34,10 +40,12 @@ export default class extends React.Component {
         <CssBaseline />
         <ConfigContext.Provider value={config}>
           <BuilerdContext.Provider value={context}>
-            <Page {...this.props} />
-            <Screensaver id="screensaver">
-              <Poster />
-            </Screensaver>
+            <Wrapper>
+              <Page {...this.props} />
+              <Screensaver id="screensaver">
+                <Poster />
+              </Screensaver>
+            </Wrapper>
           </BuilerdContext.Provider>
         </ConfigContext.Provider>
       </ThemeProvider>
