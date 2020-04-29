@@ -38,15 +38,9 @@ export default (props) => {
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
       try {
-        saveAs(blob, "avatar.png");
-        setStatusImage("ready");
-        console.log("lol", blob)
-        const fileObjectURL = URL.createObjectURL(blob);
-        console.log("azeazez", fileObjectURL) ;
-        let newWindow = window.open('/pages/loading');
-        newWindow.onload = () => {
-          newWindow.location = URL.createObjectURL(blob);
-        };
+        setTimeout(saveAs(blob, "avatar.png"), 0);
+        //saveAs(blob, "avatar.png");
+        //setStatusImage("ready");
       } catch (e) {
         console.error(e);
         setStatusImage("error");
