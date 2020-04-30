@@ -108,7 +108,7 @@ export default ({
         // Resize image for preview
         Jimp.read(base64Img).then(image => {
           image
-            .scaleToFit(480, 320)
+            .scaleToFit(20, 20)
             .getBase64Async(Jimp.MIME_PNG)
             .then(imageLow => setBuilderConfig(name + "Low", imageLow));
         });

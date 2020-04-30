@@ -81,7 +81,7 @@ const Avatar = styled.div`
   ${({ background }) =>
     background !== "LOADING" &&
     css`
-      background-image: url("images/test.png");
+      background-image: url("${background}");
   `}
   ${({ layout }) => {
     if (layout === "layout1") {
