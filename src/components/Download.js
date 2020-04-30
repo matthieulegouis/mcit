@@ -40,16 +40,20 @@ export default (props) => {
       const canvas = await html2canvas(ref, { scale: 1 });
       ref.style.opacity = 0;
       window.scroll(0, lastScroll);
-      setCanvas(canvas)
+      setCanvas(canvas);
     }
     getCanvas();
   }, [props]);
 
   // Save previewed poster in PNG
   const savePng = () => {
+
+
+
     console.log(canvas);
     canvas.toBlobHD(blob => {
-      saveAs(blob, "yo");
+      var url = window.URL.createObjectURL(blob);
+      saveAs(url, "ok.png");
     }, 'image/png');
 
 
