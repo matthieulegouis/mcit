@@ -31,20 +31,9 @@ export default (props) => {
   // Save previewed poster in PNG
   const savePng = async (e) => {
     e.stopPropagation();
-    if (statusImage === "running") {
-      console.log("Save to image already running");
-      return;
-    }
-    setStatusImage("running");
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
-      try {
-        saveAs(blob, "avatar.png");
-        setStatusImage("ready");
-      } catch (e) {
-        console.error(e);
-        setStatusImage("error");
-      }
+      saveAs(blob, "avatar.png");
     });
   };
 
