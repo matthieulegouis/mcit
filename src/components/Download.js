@@ -3,7 +3,19 @@ import styled from "styled-components";
 import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { saveAs } from "file-saver";
-import getCanvas from "../helpers/getCanvas";
+import html2canvas from "html2canvas";
+
+const getCanvas = () => {
+  const lastScroll = window.scrollY;
+  window.scrollTo(0, 0);
+  const ref = document.querySelector("#screensaver");
+  ref.style.opacity = 1;
+  const canvas = html2canvas(ref, { scale: 1 });
+  ref.style.opacity = 0;
+  window.scroll(0, lastScroll);
+  
+  return canvas;
+};
 
 const Button = styled(ButtonMui).attrs({
   style: {
@@ -29,14 +41,12 @@ export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
 
   // Save previewed poster in PNG
-  const savePng = async (e) => {
-    e.stopPropagation();
+  const savePng = async () => {
     const canvas = await getCanvas();
-    setTimeout(() => {
-      canvas.toBlob(blob => {
-        saveAs(blob, "avatar.png");
-      });
-    }, 3000);
+    canvas.toBlob(blob => {
+      console.log(blob);
+      saveAs(blob, "avatar.png");
+    });
   };
 
   return (
