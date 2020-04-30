@@ -78,11 +78,6 @@ const Avatar = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   border-radius: 50%;
-  ${({ background }) =>
-    background !== "LOADING" &&
-    css`
-      background-image: url("${background}");
-  `}
   ${({ layout }) => {
     if (layout === "layout1") {
       return css`
@@ -149,11 +144,11 @@ export default ({
   return (
     <Header>
       <Avatar
-        background={backgroundImg}
         layout={layout}
         layout1Color={layout1Color}
         layout3Color={layout3Color}
       >
+        <img src={background} />
         <Logo
           layout={layout}
           layout1Color={layout1Color}
