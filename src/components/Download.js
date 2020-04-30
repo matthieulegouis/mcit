@@ -50,13 +50,13 @@ export default (props) => {
   // Save previewed poster in PNG
   const savePng = () => {
 
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.href = canvas.toDataURL("image/png", 0.1);
+    a.download = "canvas.png";
+    a.click();
 
 
-    console.log(canvas);
-    canvas.toBlobHD(blob => {
-      var url = window.URL.createObjectURL(blob);
-      saveAs(url, "ok.png");
-    }, 'image/png');
 
 
   };
