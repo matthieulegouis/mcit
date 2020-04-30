@@ -78,7 +78,23 @@ const Avatar = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   border-radius: 50%;
-
+  ${({ background }) =>
+    background !== "LOADING" &&
+    css`
+      background-image: url("images/test.png");
+  `}
+  ${({ layout }) => {
+    if (layout === "layout1") {
+      return css`
+        border: 18px solid #FFF;
+      `;
+    }
+    if (layout === "layout2" || layout === "layout3") {
+      return css`
+        border: 18px solid #FFF !important;
+      `;
+    }
+  }}
 
   ${({ layout1Color }) => {
     if (layout1Color === "color1") {
