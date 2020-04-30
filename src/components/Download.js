@@ -43,7 +43,7 @@ export default (props) => {
       setCanvas(canvas)
     }
     getCanvas();
-  }, []);
+  }, [props]);
 
   // Save previewed poster in PNG
   const savePng = () => {
