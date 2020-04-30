@@ -43,8 +43,12 @@ export default (props) => {
     setTimeout(() => {
       canvas.toBlob(blob => {
         console.log(blob);
-        saveAs(blob, "avatar.png");
-      });
+        try {
+          saveAs(blob, "avatar.png");
+        } catch(err) {
+
+        }
+      }, "image/png");
 
     }, 3000);
   };
