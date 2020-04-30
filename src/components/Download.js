@@ -49,7 +49,7 @@ export default (props) => {
     console.log(canvas);
     canvas.toBlob(blob => {
       saveAs(blob, "avatar.png");
-    });
+    }, 'image/png', 0.95);
 
 
   };
