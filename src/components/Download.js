@@ -4,6 +4,7 @@ import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { saveAs } from "file-saver";
 import html2canvas from "html2canvas";
+import "canvas-toBlob";
 
 
 const Button = styled(ButtonMui).attrs({
@@ -47,9 +48,9 @@ export default (props) => {
   // Save previewed poster in PNG
   const savePng = () => {
     console.log(canvas);
-    canvas.toBlob(blob => {
-      saveAs(blob, "avatar.png");
-    }, 'image/png', 0.95);
+    canvas.toBlobHD(blob => {
+      saveAs(blob, "yo");
+    }, 'image/png');
 
 
   };
