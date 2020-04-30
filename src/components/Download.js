@@ -29,32 +29,27 @@ export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
 
   // Save previewed poster in PNG
-    const savePng = async (e) => {
-    var img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = 'http://localhost:3000/images/test.png';
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-
-    img.onload = function() {
-      ctx.drawImage(img, 0, 0, 300, 300);
-      link.href = document.getElementById('canvas').toDataURL();
-    };
-
-    var link = document.createElement('a');
-    link.innerHTML = 'Save';
-    //link.href = document.getElementById('canvas').toDataURL();
-
-    link.addEventListener('click', function(e) {
-      link.download = "imagename.png";
-    }, false);
-
-    document.body.appendChild(link);
+  const savePng = async (e) => {
+    e.stopPropagation();
+    if (statusImage === "running") {
+      console.log("Save to image already running");
+      return;
+    }
+    setStatusImage("running");
+    const canvas = await getCanvas();
+    canvas.toBlob(blob => {
+      try {
+        saveAs(blob, "avatar.png");
+        setStatusImage("ready");
+      } catch (e) {
+        console.error(e);
+        setStatusImage("error");
+      }
+    });
   };
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
-      <canvas id="canvas" width="300" height="300"></canvas>
       {props.facebook ?
         <Button variant="contained" color="primary" onClick={savePng}>
           <Img src="/images/social/facebook.svg" />
@@ -76,4 +71,3 @@ export default (props) => {
     </Grid>
   );
 };
-
