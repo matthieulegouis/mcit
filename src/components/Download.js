@@ -32,9 +32,11 @@ export default (props) => {
   const savePng = async (e) => {
     e.stopPropagation();
     const canvas = await getCanvas();
-    canvas.toBlob(blob => {
-      saveAs(blob, "avatar.png");
-    });
+    setTimeout(() => {
+      canvas.toBlob(blob => {
+        saveAs(blob, "avatar.png");
+      });
+    }, 3000);
   };
 
   return (
