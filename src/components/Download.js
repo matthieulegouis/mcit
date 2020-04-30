@@ -32,17 +32,19 @@ export default (props) => {
   const [canvas, setCanvas] = useState();
 
   useEffect(() => {
-    async function getCanvas() {
-      const lastScroll = window.scrollY;
-      window.scrollTo(0, 0);
-      const ref = document.querySelector("#screensaver");
-      ref.style.opacity = 1;
-      const canvas = await html2canvas(ref, { scale: 1 });
-      ref.style.opacity = 0;
-      window.scroll(0, lastScroll);
+    var img;
+    const lastScroll = window.scrollY;
+    window.scrollTo(0, 0);
+    const ref = document.querySelector("#screensaver");
+    ref.style.opacity = 1;
+
+    html2canvas(ref).then(function(canvas) {
+      
       setCanvas(canvas);
-    }
-    getCanvas();
+  });
+    console.log("a", img)
+    ref.style.opacity = 0;
+    window.scroll(0, lastScroll);
   }, [props]);
 
   // Save previewed poster in PNG
