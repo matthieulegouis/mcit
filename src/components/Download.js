@@ -38,9 +38,8 @@ export default (props) => {
     setStatusImage("running");
     const canvas = await getCanvas();
     canvas.toBlob(blob => {
-      const url = URL.createObjectURL(blob);
-      saveAs(url, "image.jpg");
-    });
+      saveAs(blob, "pretty image.png");
+    }, 'image/png');
   };
 
   return (
