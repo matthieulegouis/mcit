@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -28,29 +28,30 @@ const Img = styled.img`
 
 export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
+  const [canvas, setCanvas] = useState();
+
+  useEffect(() => {
+    async function getCanvas() {
+      const lastScroll = window.scrollY;
+      window.scrollTo(0, 0);
+      const ref = document.querySelector("#screensaver");
+      ref.style.opacity = 1;
+      const canvas = await html2canvas(ref, { scale: 1 });
+      ref.style.opacity = 0;
+      window.scroll(0, lastScroll);
+      setCanvas(canvas)
+    }
+    getCanvas();
+  }, []);
 
   // Save previewed poster in PNG
-  const savePng = async () => {
+  const savePng = () => {
+    console.log(canvas);
+    canvas.toBlob(blob => {
+      saveAs(blob, "avatar.png");
+    });
 
-    const lastScroll = window.scrollY;
-    window.scrollTo(0, 0);
-    const ref = document.querySelector("#screensaver");
-    ref.style.opacity = 1;
-    const canvas = await html2canvas(ref, { scale: 1 });
-    ref.style.opacity = 0;
-    window.scroll(0, lastScroll);
-    
-    setTimeout(() => {
-      canvas.toBlob(blob => {
-        console.log(blob);
-        try {
-          saveAs(blob, "avatar.png");
-        } catch(err) {
 
-        }
-      }, "image/png");
-
-    }, 3000);
   };
 
   return (
