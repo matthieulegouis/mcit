@@ -42,7 +42,9 @@ export default (props) => {
 }());
 
   // Save previewed poster in PNG
-  const savePng = async () => {
+  const savePng = async (e) => {
+    e.stopPropagation();
+    console.log(e);
     if (statusImage === "running") {
       console.log("Save to image already running");
       return;
