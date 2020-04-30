@@ -29,23 +29,22 @@ export default (props) => {
   const [statusImage, setStatusImage] = useState("ready");
 
   // Save previewed poster in PNG
-  const savePng = () => {
-    var canvas = document.getElementById("myCanvas");
-
-
-    
-
-
-    canvas.toBlob((blob) => {
-      saveAs(blob, "pretty image.png");
+  const savePng = async (e) => {
+    e.stopPropagation();
+    if (statusImage === "running") {
+      console.log("Save to image already running");
+      return;
+    }
+    setStatusImage("running");
+    const canvas = await getCanvas();
+    canvas.toBlob(blob => {
+      const url = URL.createObjectURL(blob);
+      saveAs(url, "image.jpg");
     });
-
   };
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
-      <img id="scream" src="https://cdn.dribbble.com/users/24711/screenshots/11192482/media/18922ef20f8af11ad104d2d853d61059.jpg" alt="The Scream" width="220" height="277" />
-      <canvas id="myCanvas" width="250" height="300"></canvas>
       {props.facebook ?
         <Button variant="contained" color="primary" onClick={savePng}>
           <Img src="/images/social/facebook.svg" />
