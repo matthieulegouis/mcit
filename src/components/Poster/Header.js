@@ -99,6 +99,14 @@ const Avatar = styled.div`
   height: 100%;
   background-color: #303030;
   overflow: hidden;
+  border-radius: 50%;
+`;
+
+const Circle = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   transition: all 0.3s ease;
   border-radius: 50%;
   ${({ layout }) => {
@@ -148,6 +156,7 @@ const Avatar = styled.div`
   }}
 `;
 
+
 const Spinner = styled(CircularProgress)`
   position: absolute;
   top: calc(50% - 75px);
@@ -185,6 +194,11 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
           {layout === "layout2" ? <IMGCONTAINER><IMG src="/images/logo-wcm.png" /></IMGCONTAINER> : null}
           {layout === "layout3" ? <IMGCONTAINER><IMG src="/images/logo-wcm-white.png" /></IMGCONTAINER> : null}
         </Logo>
+        <Circle
+          layout={layout}
+          layout1Color={layout1Color}
+          layout3Color={layout3Color}
+        ></Circle>
       </Avatar>
       {isLoading && <Spinner size={150} />}
     </Header>
