@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -60,6 +60,24 @@ const Logo = styled.div`
   }}
 `;
 
+const IMGAVATAR = styled.img`
+  display: block;
+  ${({ orientation }) => {
+    if (orientation === "vertical") {
+      return css`
+        width: 100%;
+        height: auto;
+      `;
+    }
+    if (orientation === "horizontal") {
+      return css`
+        width: auto;
+        height: 100%;
+      `;
+    }
+  }}
+`
+
 const IMG = styled.img`
   display: inline-block;
   margin: auto;
@@ -69,9 +87,9 @@ const IMG = styled.img`
 
 const Avatar = styled.div`
   position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background-color: #303030;
@@ -131,16 +149,22 @@ const Spinner = styled(CircularProgress)`
   left: calc(50% - 75px);
 `;
 
-export default ({
-  preview,
-  background = "",
-  backgroundLow,
-  layout,
-  layout1Color,
-  layout3Color
-}) => {
+export default ({preview, background = "", backgroundLow, layout, layout1Color, layout3Color }) => {
+  let avatar = null;
+  const [orientation, setOrientation] = useState("");
   const backgroundImg = preview ? backgroundLow || background : background;
   const isLoading = backgroundImg === "LOADING";
+  useEffect(() => {
+    if (avatar) {
+      console.log(avatar.width);
+      if (avatar.width / avatar.height < 1) {
+        setOrientation("vertical");
+      } else {
+        setOrientation("horizontal");
+      }
+    }
+  });
+
   return (
     <Header>
       <Avatar
@@ -148,7 +172,7 @@ export default ({
         layout1Color={layout1Color}
         layout3Color={layout3Color}
       >
-        <img src={background} />
+        {isLoading ? null : <IMGAVATAR src={background} orientation={orientation} ref={el => (avatar = el)} />}
         <Logo
           layout={layout}
           layout1Color={layout1Color}
