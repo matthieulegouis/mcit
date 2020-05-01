@@ -20,8 +20,8 @@ const Logo = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 120px;
-  line-height: 120px;
+  height: 240px;
+  line-height: 240px;
   background: #fff;
   text-align: center;
   ${({ layout }) => {
@@ -86,8 +86,8 @@ const IMG = styled.img`
 
 const IMGCONTAINER = styled.div`
   display: block;
-  width: 175px;
-  margin: 25px auto 0;
+  width: 350px;
+  margin: 50px auto 0;
 `
 
 const Avatar = styled.div`
@@ -104,12 +104,12 @@ const Avatar = styled.div`
   ${({ layout }) => {
     if (layout === "layout1") {
       return css`
-        border: 18px solid #FFF;
+        border: 36px solid #FFF;
       `;
     }
     if (layout === "layout2" || layout === "layout3") {
       return css`
-        border: 18px solid #FFF !important;
+        border: 36px solid #FFF !important;
       `;
     }
   }}
