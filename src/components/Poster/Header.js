@@ -3,26 +3,47 @@ import styled, { css } from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Header = styled.div`
-  width: 590px;
-  height: 590px;
-  background: transparent;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 50%;
-`;
-
-const CircleIMG = styled.img`
-  position: absolute;
-  z-index: 10000000;
-  top: 0;
-  left: 0;
   width: 590px;
   height: 590px;
+  background: transparent;
+  border-radius: 50%;
 `;
-
+const Avatar = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 590px;
+  height: 590px;
+  background-color: #303030;
+  border-radius: 50%;
+`;
+const IMGAVATAR = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  ${({ orientation }) => {
+    if (orientation === "vertical") {
+      return css`
+        width: 100%;
+        height: auto;
+      `;
+    }
+    if (orientation === "horizontal") {
+      return css`
+        width: auto;
+        height: 100%;
+      `;
+    }
+  }}
+`
 const Logo = styled.div`
   display: block;
   position: absolute;
@@ -69,54 +90,19 @@ const Logo = styled.div`
     }
   }}
 `;
-
-const IMGAVATAR = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  ${({ orientation }) => {
-    if (orientation === "vertical") {
-      return css`
-        width: 100%;
-        height: auto;
-      `;
-    }
-    if (orientation === "horizontal") {
-      return css`
-        width: auto;
-        height: 100%;
-      `;
-    }
-  }}
-`
-
 const IMG = styled.img`
   display: block;
-  width: 180px;
-  margin: auto;
-  max-width: 100%;
+  width: 270px;
+  margin: 33px auto 0;
 `
-
-const IMGCONTAINER = styled.div`
-  display: block;
-  width: 350px;
-  margin: 40px auto 0;
-`
-
-const Avatar = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const CircleIMG = styled.img`
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
   width: 590px;
   height: 590px;
-  background-color: #303030;
-  overflow: hidden;
-  border-radius: 50%;
 `;
-
-
 const Spinner = styled(CircularProgress)`
   position: absolute;
   top: calc(50% - 75px);
@@ -140,27 +126,23 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
 console.log("layout", layout)
   return (
     <Header>
-      <Avatar
-        layout={layout}
-        layout1Color={layout1Color}
-        layout3Color={layout3Color}
-      >
+      <Avatar>
         {isLoading ? null : <IMGAVATAR src={background} orientation={orientation} ref={el => (avatar = el)} />}
         <Logo
           layout={layout}
           layout1Color={layout1Color}
           layout3Color={layout3Color}
         >
-          {layout === "layout2" ? <IMGCONTAINER><IMG src="/images/logo-wcm.png" /></IMGCONTAINER> : null}
-          {layout === "layout3" ? <IMGCONTAINER><IMG src="/images/logo-wcm-white.png" /></IMGCONTAINER> : null}
+          {layout === "layout2" ? <IMG src="/images/logos/logo-wcm.png" /> : null}
+          {layout === "layout3" ? <IMG src="/images/logos/logo-wcm-white.png" /> : null}
         </Logo>
  
-        {layout === "layout2" || layout === "layout3" ? <CircleIMG src="/images/circle0.png"></CircleIMG> : null}
-        {layout === "layout1" && layout1Color === "color1" ? <CircleIMG src="/images/circle1.png"></CircleIMG> : null}
-        {layout === "layout1" && layout1Color === "color2" ? <CircleIMG src="/images/circle2.png"></CircleIMG> : null}
-        {layout === "layout1" && layout1Color === "color3" ? <CircleIMG src="/images/circle3.png"></CircleIMG> : null}
-        {layout === "layout1" && layout1Color === "color4" ? <CircleIMG src="/images/circle4.png"></CircleIMG> : null}
-        {layout === "layout1" && layout1Color === "color5" ? <CircleIMG src="/images/circle5.png"></CircleIMG> : null}
+        {layout === "layout2" || layout === "layout3" ? <CircleIMG src="/images/circles/circle0.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color1" ? <CircleIMG src="/images/circles/circle1.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color2" ? <CircleIMG src="/images/circles/circle2.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color3" ? <CircleIMG src="/images/circles/circle3.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color4" ? <CircleIMG src="/images/circles/circle4.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color5" ? <CircleIMG src="/images/circles/circle5.png"></CircleIMG> : null}
         
       </Avatar>
       {isLoading && <Spinner size={150} />}
