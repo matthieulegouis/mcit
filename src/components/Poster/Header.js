@@ -87,7 +87,7 @@ const IMG = styled.img`
 const IMGCONTAINER = styled.div`
   display: block;
   width: 175px;
-  margin: auto;
+  margin: 25px auto 0;
 `
 
 const Avatar = styled.div`
@@ -182,8 +182,8 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
           layout1Color={layout1Color}
           layout3Color={layout3Color}
         >
-          {layout === "layout2" ? <IMGCONTAINER><IMG src="/images/logo-wcm.svg" /></IMGCONTAINER> : null}
-          {layout === "layout3" ? <IMGCONTAINER><IMG src="/images/logo-wcm-white.svg" /></IMGCONTAINER> : null}
+          {layout === "layout2" ? <IMGCONTAINER><IMG src="/images/logo-wcm.png" /></IMGCONTAINER> : null}
+          {layout === "layout3" ? <IMGCONTAINER><IMG src="/images/logo-wcm-white.png" /></IMGCONTAINER> : null}
         </Logo>
       </Avatar>
       {isLoading && <Spinner size={150} />}
