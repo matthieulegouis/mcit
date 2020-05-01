@@ -3,15 +3,24 @@ import styled, { css } from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Header = styled.div`
-  width: 1056px;
-  height: 1056px;
+  width: 590px;
+  height: 590px;
   background: transparent;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 1056px;
+  border-radius: 50%;
+`;
+
+const CircleIMG = styled.img`
+  position: absolute;
+  z-index: 10000000;
+  top: 0;
+  left: 0;
+  width: 590px;
+  height: 590px;
 `;
 
 const Logo = styled.div`
@@ -21,8 +30,8 @@ const Logo = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 240px;
-  line-height: 240px;
+  height: 190px;
+  line-height: 190px;
   background: #fff;
   text-align: center;
   ${({ layout }) => {
@@ -84,13 +93,14 @@ const IMGAVATAR = styled.img`
 
 const IMG = styled.img`
   display: block;
-  width: 100%;
+  width: 180px;
+  margin: auto;
   max-width: 100%;
 `
 
 const IMGCONTAINER = styled.div`
   display: block;
-  width: 1056px;
+  width: 350px;
   margin: 40px auto 0;
 `
 
@@ -99,76 +109,11 @@ const Avatar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1056px;
-  height: 1056px;
+  width: 590px;
+  height: 590px;
   background-color: #303030;
   overflow: hidden;
-  border-radius: 1056px;
-`;
-
-const BG = styled.div`
-  position: absolute;
-  z-index: 9999;
-  width: 200px;
-  height: 200px;
-`;
-
-const Circle = styled.div`
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  width: 1056px;
-  height: 1056px;
-  transition: all 0.3s ease;
-  border-radius: 1056px;
-  ${({ layout }) => {
-    if (layout === "layout1") {
-      return css`
-        border: 36px solid #FFF;
-      `;
-    }
-    if (layout === "layout2" || layout === "layout3") {
-      return css`
-        border: 36px solid #FFF !important;
-      `;
-    }
-  }}
-
-  ${({ layout1Color }) => {
-    if (layout1Color === "color1") {
-      return css`
-        border-color: rgba(179, 27, 27, 1) rgba(179, 27, 27, 1)
-          rgba(255, 199, 44, 1) rgba(255, 199, 44, 1);
-      `;
-    }
-    if (layout1Color === "color2") {
-      return css`
-        border-color: rgba(207, 69, 32, 1) rgba(207, 69, 32, 1)
-          rgba(255, 199, 44, 1) rgba(255, 199, 44, 1);
-      `;
-    }
-    if (layout1Color === "color3") {
-      return css`
-        border-color: rgba(207, 69, 32, 1) rgba(207, 69, 32, 1)
-          rgba(179, 27, 27, 1) rgba(179, 27, 27, 1);
-      `;
-    }
-    if (layout1Color === "color4") {
-      return css`
-        border-color: rgba(255, 199, 44, 1) rgba(255, 199, 44, 1)
-          rgba(179, 27, 27, 1) rgba(179, 27, 27, 1);
-      `;
-    }
-    if (layout1Color === "color5") {
-      return css`
-        border-color: rgba(179, 27, 27, 1) rgba(207, 69, 32, 1)
-          rgba(232, 119, 34, 1) rgba(255, 199, 44, 1);
-      `;
-    }
-  }}
+  border-radius: 50%;
 `;
 
 
@@ -192,7 +137,7 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
       }
     }
   });
-
+console.log("layout", layout)
   return (
     <Header>
       <Avatar
@@ -200,6 +145,7 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
         layout1Color={layout1Color}
         layout3Color={layout3Color}
       >
+        {isLoading ? null : <IMGAVATAR src={background} orientation={orientation} ref={el => (avatar = el)} />}
         <Logo
           layout={layout}
           layout1Color={layout1Color}
@@ -208,12 +154,14 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
           {layout === "layout2" ? <IMGCONTAINER><IMG src="/images/logo-wcm.png" /></IMGCONTAINER> : null}
           {layout === "layout3" ? <IMGCONTAINER><IMG src="/images/logo-wcm-white.png" /></IMGCONTAINER> : null}
         </Logo>
-        <Circle
-          layout={layout}
-          layout1Color={layout1Color}
-          layout3Color={layout3Color}
-        ></Circle>
-        <BG style={{backgroundImage:`url(${background})`}}></BG>
+ 
+        {layout === "layout2" || layout === "layout3" ? <CircleIMG src="/images/circle0.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color1" ? <CircleIMG src="/images/circle1.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color2" ? <CircleIMG src="/images/circle2.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color3" ? <CircleIMG src="/images/circle3.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color4" ? <CircleIMG src="/images/circle4.png"></CircleIMG> : null}
+        {layout === "layout1" && layout1Color === "color5" ? <CircleIMG src="/images/circle5.png"></CircleIMG> : null}
+        
       </Avatar>
       {isLoading && <Spinner size={150} />}
     </Header>

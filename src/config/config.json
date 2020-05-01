@@ -5,7 +5,7 @@
       "name": "Colorfull circle",
       "image": "",
       "ratio": 1,
-      "width": 1056,
+      "width": 590,
       "image": "/images/layouts/layout1.png"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Logo on a white background",
       "image": "",
       "ratio": 1,
-      "width": 1056,
+      "width": 590,
       "image": "/images/layouts/layout2.png"
     },
     {
@@ -21,7 +21,7 @@
       "name": "Logo on a colored background",
       "image": "",
       "ratio": 1,
-      "width": 1056,
+      "width": 590,
       "image": "/images/layouts/layout3.png"
     }
   ],

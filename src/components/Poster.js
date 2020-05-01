@@ -11,13 +11,13 @@ const Wrapper = styled.div`
       width: ${({ width }) => width}px;
       height: ${({ width, ratio }) => width * ratio}px;
       margin: 0 auto;
-      transform: scale(0.2);
+      transform: scale(0.35);
     `}
 
   ${({ mobile }) =>
     mobile &&
     css`
-      transform: scale(0.2);
+      transform: scale(0.35);
     `}
 `;
 
