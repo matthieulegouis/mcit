@@ -79,9 +79,9 @@ const IMGAVATAR = styled.img`
 `
 
 const IMG = styled.img`
-  display: inline-block;
+  display: block;
   margin: auto;
-  height: 120px;
+  width: 175px;
   overflow: hidden;
 `
 
