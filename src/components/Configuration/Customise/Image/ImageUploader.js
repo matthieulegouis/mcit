@@ -20,6 +20,7 @@ const Uploader = styled.div`
 `;
 
 const Label = styled.label`
+  display: inline-block;
   cursor: pointer;
   padding: 8px;
   min-width: 30px;
@@ -37,14 +38,13 @@ const Label = styled.label`
 
 const FileName = styled.div`
   position: relative;
-  top: 5px;
   display: inline-block;
   max-width: 300px;
   margin-left: 10px;
+  padding: 8px;
   font-size: 0.8rem;
   color: #424242;
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   @media (max-width: 768px) {
     max-width: 170px;
@@ -108,7 +108,7 @@ export default ({
         // Resize image for preview
         Jimp.read(base64Img).then(image => {
           image
-            .scaleToFit(20, 20)
+            .scaleToFit(590, 590)
             .getBase64Async(Jimp.MIME_PNG)
             .then(imageLow => setBuilderConfig(name + "Low", imageLow));
         });

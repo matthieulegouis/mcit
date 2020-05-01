@@ -93,7 +93,7 @@ const Logo = styled.div`
 const IMG = styled.img`
   display: block;
   width: 270px;
-  margin: 33px auto 0;
+  margin: 23px auto 0;
 `
 const CircleIMG = styled.img`
   position: absolute;
