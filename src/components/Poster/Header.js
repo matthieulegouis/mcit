@@ -3,14 +3,15 @@ import styled, { css } from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Header = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 1056px;
+  height: 1056px;
   background: transparent;
-  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-radius: 1056px;
 `;
 
 const Logo = styled.div`
@@ -61,6 +62,9 @@ const Logo = styled.div`
 `;
 
 const IMGAVATAR = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
   ${({ orientation }) => {
     if (orientation === "vertical") {
@@ -86,7 +90,7 @@ const IMG = styled.img`
 
 const IMGCONTAINER = styled.div`
   display: block;
-  width: 350px;
+  width: 1056px;
   margin: 40px auto 0;
 `
 
@@ -95,21 +99,31 @@ const Avatar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 1056px;
+  height: 1056px;
   background-color: #303030;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 1056px;
+`;
+
+const BG = styled.div`
+  position: absolute;
+  z-index: 9999;
+  width: 200px;
+  height: 200px;
 `;
 
 const Circle = styled.div`
-  position: absolute;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 1056px;
+  height: 1056px;
   transition: all 0.3s ease;
-  border-radius: 50%;
+  border-radius: 1056px;
   ${({ layout }) => {
     if (layout === "layout1") {
       return css`
@@ -186,7 +200,6 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
         layout1Color={layout1Color}
         layout3Color={layout3Color}
       >
-        {isLoading ? null : <IMGAVATAR src={background} orientation={orientation} ref={el => (avatar = el)} />}
         <Logo
           layout={layout}
           layout1Color={layout1Color}
@@ -200,6 +213,7 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
           layout1Color={layout1Color}
           layout3Color={layout3Color}
         ></Circle>
+        <BG style={{backgroundImage:`url(${background})`}}></BG>
       </Avatar>
       {isLoading && <Spinner size={150} />}
     </Header>
