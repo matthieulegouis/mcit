@@ -26,6 +26,7 @@ const Avatar = styled.div`
 `;
 const IMGAVATAR = styled.img`
   position: absolute;
+  z-index: 10;
   top: 0;
   left: 0;
   display: block;
@@ -47,7 +48,7 @@ const IMGAVATAR = styled.img`
 const Logo = styled.div`
   display: block;
   position: absolute;
-  z-index: 1;
+  z-index: 100;
   bottom: 0;
   left: 0;
   right: 0;
@@ -97,7 +98,7 @@ const IMG = styled.img`
 `
 const CircleIMG = styled.img`
   position: absolute;
-  z-index: 10;
+  z-index: 1000;
   top: 0;
   left: 0;
   width: 590px;
