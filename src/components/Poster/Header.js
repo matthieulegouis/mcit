@@ -81,7 +81,7 @@ const IMGAVATAR = styled.img`
 const IMG = styled.img`
   display: inline-block;
   margin: auto;
-  max-height: 100%;
+  height: 120px;
   overflow: hidden;
 `
 
