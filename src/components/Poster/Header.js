@@ -80,6 +80,13 @@ const IMGAVATAR = styled.img`
 
 const IMG = styled.img`
   display: block;
+  width: 100%;
+  max-width: 100%;
+`
+
+const IMGCONTAINER = styled.div`
+  display: block;
+  width: 175px;
   margin: auto;
 `
 
@@ -154,7 +161,6 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
   const isLoading = backgroundImg === "LOADING";
   useEffect(() => {
     if (avatar) {
-      console.log(avatar.width);
       if (avatar.width / avatar.height < 1) {
         setOrientation("vertical");
       } else {
@@ -176,8 +182,8 @@ export default ({preview, background = "", backgroundLow, layout, layout1Color, 
           layout1Color={layout1Color}
           layout3Color={layout3Color}
         >
-          {layout === "layout2" ? <IMG width="175" src="/images/logo-wcm.svg" /> : null}
-          {layout === "layout3" ? <IMG width="175" src="/images/logo-wcm-white.svg" /> : null}
+          {layout === "layout2" ? <IMGCONTAINER><IMG src="/images/logo-wcm.svg" /></IMGCONTAINER> : null}
+          {layout === "layout3" ? <IMGCONTAINER><IMG src="/images/logo-wcm-white.svg" /></IMGCONTAINER> : null}
         </Logo>
       </Avatar>
       {isLoading && <Spinner size={150} />}
