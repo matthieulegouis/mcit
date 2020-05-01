@@ -87,7 +87,7 @@ const IMG = styled.img`
 const IMGCONTAINER = styled.div`
   display: block;
   width: 350px;
-  margin: 50px auto 0;
+  margin: 40px auto 0;
 `
 
 const Avatar = styled.div`
@@ -104,6 +104,7 @@ const Avatar = styled.div`
 
 const Circle = styled.div`
   position: absolute;
+  z-index: 1;
   width: 100%;
   height: 100%;
   overflow: hidden;
