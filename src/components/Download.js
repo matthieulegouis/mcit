@@ -4,6 +4,7 @@ import ButtonMui from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { saveAs } from "file-saver";
 import getCanvas from "../helpers/getCanvas";
+import "canvas-toBlob";
 
 const Button = styled(ButtonMui).attrs({
   style: {
@@ -37,7 +38,7 @@ export default (props) => {
     }
     setStatusImage("running");
     const canvas = await getCanvas();
-    canvas.toBlob(blob => {
+    canvas.toBlobHD(blob => {
       try {
         saveAs(blob, "avatar.png");
         setStatusImage("ready");
