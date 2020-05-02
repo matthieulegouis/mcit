@@ -92,13 +92,20 @@ export default ({
           if (maxWidth && uploadedImage.width > maxWidth) {
             Jimp.read(base64Img).then(image => {
               image
-                .scaleToFit(maxWidth, maxWidth)
+                .cover(590, 590)
                 .getBase64Async(Jimp.MIME_PNG)
                 .then(resizedImg => setBuilderConfig(name, resizedImg));
             });
           }
           // else, save it as uploaded
-          else setBuilderConfig(name, base64Img);
+          else {
+            Jimp.read(base64Img).then(image => {
+              image
+                .cover(590, 590)
+                .getBase64Async(Jimp.MIME_PNG)
+                .then(resizedImg => setBuilderConfig(name, resizedImg));
+            });
+          }
           // Update button state when image is saved
           setHasFile(true);
           setBtnText("Change file");
@@ -108,7 +115,7 @@ export default ({
         // Resize image for preview
         Jimp.read(base64Img).then(image => {
           image
-            .scaleToFit(590, 590)
+            .cover(590, 590)
             .getBase64Async(Jimp.MIME_PNG)
             .then(imageLow => setBuilderConfig(name + "Low", imageLow));
         });

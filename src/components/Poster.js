@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import styled, { css } from "styled-components";
 import ConfigContext from "../contexts/configContext";
 import BuilderContext from "../contexts/builderContext";
@@ -46,30 +46,19 @@ export default ({ preview, mobile }) => {
   let layout = layouts.find(l => l.id === builderConfig.layout);
   if (!layout) layout = builderConfig.layout[0];
 
-  if (preview)
-    useEffect(() => {
-      if (mobile) {
-        const parentHeight = window.innerHeight;
-        const parentWidth = window.innerWidth;
-        const windowRatio = parentHeight / parentWidth;
-      } else {
-        const parentWidth = wrapperRef.current.clientWidth;
-      }
-    }, [layout, mobile]);
-
-    return (
-      <Wrapper
-        ref={wrapperRef}
-        preview={preview}
-        width={layout.width}
-        height={layout.width * layout.ratio}
-        mobile={mobile}
-        {...layout}
-      >
-        <Poster preview={preview} {...layout}>
-          <Header {...builderConfig} preview={preview} />
-        </Poster>
-      </Wrapper>
-    );
-    
+  return (
+    <Wrapper
+      ref={wrapperRef}
+      preview={preview}
+      width={layout.width}
+      height={layout.width * layout.ratio}
+      mobile={mobile}
+      {...layout}
+    >
+      <Poster preview={preview} {...layout}>
+        <Header {...builderConfig} preview={preview} />
+      </Poster>
+    </Wrapper>
+  );
+  
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -15,9 +15,6 @@ const Header = styled.div`
 `;
 const Avatar = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   width: 590px;
   height: 590px;
@@ -30,20 +27,7 @@ const IMGAVATAR = styled.img`
   top: 0;
   left: 0;
   display: block;
-  ${({ orientation }) => {
-    if (orientation === "vertical") {
-      return css`
-        width: 100%;
-        height: auto;
-      `;
-    }
-    if (orientation === "horizontal") {
-      return css`
-        width: auto;
-        height: 100%;
-      `;
-    }
-  }}
+  width: 100%;
 `
 const Logo = styled.div`
   display: block;
@@ -111,24 +95,12 @@ const Spinner = styled(CircularProgress)`
 `;
 
 export default ({preview, background = "", backgroundLow, layout, layout1Color, layout3Color }) => {
-  let avatar = null;
-  const [orientation, setOrientation] = useState("");
   const backgroundImg = preview ? backgroundLow || background : background;
   const isLoading = backgroundImg === "LOADING";
-  useEffect(() => {
-    if (avatar) {
-      if (avatar.width / avatar.height < 1) {
-        setOrientation("vertical");
-      } else {
-        setOrientation("horizontal");
-      }
-    }
-  });
-console.log("layout", layout)
   return (
     <Header>
       <Avatar>
-        {isLoading ? null : <IMGAVATAR src={background} orientation={orientation} ref={el => (avatar = el)} />}
+        {isLoading ? null : <IMGAVATAR src={background} />}
         <Logo
           layout={layout}
           layout1Color={layout1Color}
